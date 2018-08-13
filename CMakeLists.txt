@@ -37,11 +37,11 @@ endif()
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(CombinedNumber)
+project(Braces)
 
 set(SRC_LIST
-    src/CombinedNumber.hpp
-    src/CombinedNumber.cpp
+    src/Braces.hpp
+    src/Braces.cpp
 )
 
 include_directories(src)
@@ -55,7 +55,7 @@ else (UNIX)
 endif (UNIX)
 
 set(TEST_SRC_LIST
-    test/CombinedNumberTests.cpp
+    test/BracesTests.cpp
     test/test_main.cpp
 )
 

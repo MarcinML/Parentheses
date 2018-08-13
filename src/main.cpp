@@ -1,8 +1,8 @@
 #include <iostream>
-#include "CombinedNumber.hpp"
+#include "Braces.hpp"
 
 int main()
 {
-    std::cout << "CombisnedNumber!" << std::endl;
+    std::cout << "Braces!" << std::endl;
     return 0;
 }
