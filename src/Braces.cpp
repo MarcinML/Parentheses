@@ -3,7 +3,6 @@
 
 Braces::Braces()
 {
-
 }
 
 bool Braces::checkBrackets(const std::string& s)
@@ -19,16 +18,21 @@ bool Braces::checkBrackets(const std::string& s)
     }
     else if(oneElement == ')' || oneElement == ']' || oneElement == '}')
     {
-        if(v.empty()) return false;
-        if((v.back() == '(' && oneElement == ')')) return true;
-        if((v.back() == '{' && oneElement == '}')) return true;
-        if((v.back() == '[' && oneElement == ']')) return true;
-        v.pop_back();
-        return false;
-    }
 
+        if( v.empty() || !everyoneHasPair(v.back(), oneElement))
+        return false;
+        else
+        v.pop_back();
     }
-    v.clear();
-    return true;
+   }
+    return v.empty();
 }
 
+
+bool Braces::everyoneHasPair(char l, char r)
+{
+    if((l == '(' && r == ')')) return true;
+    if((l == '{' && r == '}')) return true;
+    if((l == '[' && r == ']')) return true;
+    return false;
+}
