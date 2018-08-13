@@ -1,8 +1,9 @@
 #pragma once
+#include <string>
 
 class Braces
 {
 public:
-    bool imHere();
+    bool checkBrackets(const std::string&);
 
 };
