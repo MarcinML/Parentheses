@@ -13,3 +13,15 @@ TEST_F(BracesTests, assertThatFirstBracketIsAnOpeningBracket)
     ASSERT_TRUE(b.checkBrackets("["));
     ASSERT_TRUE(b.checkBrackets("{"));
 }
+
+TEST_F(BracesTests, assertThatIfEmptyInputOutputWillBeFalse)
+{
+    Braces b;
+    ASSERT_FALSE(b.checkBrackets(""));
+}
+
+TEST_F(BracesTests, assertThatEveryOpenedBracketHasClosingBracket)
+{
+    Braces b;
+    ASSERT_TRUE(b.checkBrackets("()"));
+}
