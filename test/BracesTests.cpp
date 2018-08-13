@@ -3,12 +3,11 @@
 
 struct BracesTests : public ::testing::Test
 {
+    Braces b;
 };
 
 TEST_F(BracesTests, assertThatFirstBracketIsAnOpeningBracket)
 {
-    Braces b;
-
     ASSERT_TRUE(b.checkBrackets("("));
     ASSERT_TRUE(b.checkBrackets("["));
     ASSERT_TRUE(b.checkBrackets("{"));
@@ -16,27 +15,29 @@ TEST_F(BracesTests, assertThatFirstBracketIsAnOpeningBracket)
 
 TEST_F(BracesTests, assertThatIfEmptyInputOutputWillBeFalse)
 {
-    Braces b;
     ASSERT_FALSE(b.checkBrackets(""));
 }
 
 TEST_F(BracesTests, assertThatEveryOpenedBracketHasClosingBracket)
 {
-    Braces b;
     ASSERT_TRUE(b.checkBrackets("()"));
     ASSERT_TRUE(b.checkBrackets("{}"));
     ASSERT_TRUE(b.checkBrackets("[]"));
 }
+TEST_F(BracesTests, assertThatEveryBracketHasPair)
+{
+    ASSERT_FALSE(b.checkBrackets("())"));
+    ASSERT_FALSE(b.checkBrackets("{}}"));
+    ASSERT_FALSE(b.checkBrackets("[]]"));
+}
 
 TEST_F(BracesTests, assertThatProperCombinationOfBracketsIsTrue)
 {
-    Braces b;
     ASSERT_TRUE(b.checkBrackets("[({})]"));
 }
 
 TEST_F(BracesTests, assertThatWrongCombinationOfBracketsIsFalse)
 {
-    Braces b;
     ASSERT_FALSE(b.checkBrackets("{{)(}}"));
     ASSERT_FALSE(b.checkBrackets("({)}"));
 }

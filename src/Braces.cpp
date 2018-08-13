@@ -1,13 +1,17 @@
 #include "Braces.hpp"
 #include <vector>
 
+Braces::Braces()
+{
+
+}
 
 bool Braces::checkBrackets(const std::string& s)
 {
-    if(s.empty()) return false;
+    if(s.empty() || (s.size()%2 && s.size()>2)) return false;
 
     std::vector<char> v;
-//{{)(}}
+
     for(auto oneElement : s){
     if(oneElement == '(' || oneElement == '[' || oneElement == '{')
     {
@@ -24,6 +28,7 @@ bool Braces::checkBrackets(const std::string& s)
     }
 
     }
+    v.clear();
     return true;
 }
 
