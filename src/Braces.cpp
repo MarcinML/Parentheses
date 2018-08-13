@@ -7,8 +7,8 @@ bool Braces::checkBrackets(const std::string& s)
     if(s.empty()) return false;
 
     std::vector<char> v;
-
-    for(auto oneElement : s)
+//{{)(}}
+    for(auto oneElement : s){
     if(oneElement == '(' || oneElement == '[' || oneElement == '{')
     {
         v.push_back(oneElement);
@@ -19,10 +19,11 @@ bool Braces::checkBrackets(const std::string& s)
         if((v.back() == '(' && oneElement == ')')) return true;
         if((v.back() == '{' && oneElement == '}')) return true;
         if((v.back() == '[' && oneElement == ']')) return true;
-        else v.pop_back();
-
+        v.pop_back();
+        return false;
     }
 
+    }
     return true;
 }
 
